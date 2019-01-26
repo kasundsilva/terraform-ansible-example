@@ -14,10 +14,11 @@ This repository sets up:
    * Nginx docker container
 
 
-### Install the following locally:
+## Prerequisits
+- Install the following locally:
+
     * [Terraform](https://www.terraform.io/) >= 0.10.0
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
-
     * Ensure you add the key pair from aws to `terraform/keys` folder.
 
 
