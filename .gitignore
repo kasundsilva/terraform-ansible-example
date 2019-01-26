@@ -9,7 +9,6 @@
 *.tfvars
 
 #keys
-**/keys/*
 *.pem
 
 #ansible

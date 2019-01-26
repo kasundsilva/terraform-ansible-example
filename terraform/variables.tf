@@ -6,9 +6,7 @@ variable "aws_key_path" {}
 
 variable "aws_key_name" {}
 
-variable "region" {
-  default = "us-east-2"
-}
+variable "region" {}
 
 variable "public_subnets" {
   description = "A list of subnets in CIDR notation for public use"
