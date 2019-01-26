@@ -1,0 +1,67 @@
+- hosts: nginx_instance
+  become: yes
+  become_user: root
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+
+  tasks:
+    - name: Add Docker GPG key
+      apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+    
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+    - name: Install Docker and other utils
+      apt:
+        name: ['apt-transport-https','ca-certificates','curl','software-properties-common','docker-ce']
+        state: present
+        update_cache: yes
+
+    - name: Install python/pip 
+      apt:
+        name: ['python-pip','python-dev','build-essential','python3-pip']
+        state: present
+        update_cache: yes
+
+    - name: Install python libs for docker
+      pip:
+        name: docker
+        state: present
+   
+    - name: Create and start nginx container 
+      docker_container:
+        name: nginx
+        image: nginx
+        state: started
+        ports:
+          - 80:80
+        expose:
+          - 80
+
+    - name: Create .scripts directory
+      file:
+        path: .scripts
+        state: directory
+    
+    - name: Copy nginx healthcheck script
+      copy:
+        src: scripts/nginx-healthcheck.sh
+        dest: .scripts/nginx-healthcheck.sh
+        owner: root
+        group: root
+        mode: a+x
+    
+    - name: copy nginx fetch-output script
+      copy:
+        src: scripts/nginx-fetch-output.sh
+        dest: .scripts/nginx-fetch-output.sh
+        owner: root
+        group: root
+        mode: a+x
+
+    - name: Installing ctop for container monitring
+      get_url:
+        url: https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64
+        dest: /usr/local/bin/ctop
+        mode: a+x
