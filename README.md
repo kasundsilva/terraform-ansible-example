@@ -26,12 +26,20 @@ This repository sets up:
 ## Structure
 ```
 .
+.
 ├── ansible
+│   ├── ansible.cfg
+│   ├── playbook.retry
 │   ├── playbook.yml
-│   └── scripts
-│       ├── nginx-fetch-output.sh
-│       └── nginx-healthcheck.sh
+│   ├── scripts
+│   │   ├── nginx-fetch-output.sh
+│   │   ├── nginx-healthcheck.sh
+│   │   └── nginx-stats.sh
+│   └── static-files
+│       ├── 50x.html
+│       └── index.html
 ├── deploy.sh
+├── destroy.sh
 ├── README.md
 └── terraform
     ├── instances
@@ -39,7 +47,7 @@ This repository sets up:
     │   ├── outputs.tf
     │   └── variables.tf
     ├── keys
-    │   └── qrious.pem
+    │   
     ├── main.tf
     ├── network
     │   ├── main.tf
@@ -48,6 +56,7 @@ This repository sets up:
     │   └── variables.tf
     ├── outputs.tf
     └── variables.tf
+
 ```
  
 ## Notes
