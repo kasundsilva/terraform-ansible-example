@@ -84,7 +84,16 @@ root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-fetch-output.sh
 Word that occurs most on the page:  is
 ```
 
+`resource-log.html` contains the resource usage of the nginx container and automaticatlly updates every 10 seconds.
+```
+root@ip-172-22-253-15:/home/ubuntu/.nginx/stats# cat resource-log.html 
+{"container":"nginx","memory":{"raw":"2.16MiB / 983.9MiB","percent":"0.22%"},"cpu":"0.00%"}
+```
 
+`resource-log.html` also served via nginx in http://<PUBLIC_DNS>/stats/resource-log.html
+
+root@ip-172-22-253-15:/home/ubuntu/.nginx/stats# curl http://<PUBLIC_DNS>/stats/resource-log.html
+{"container":"nginx","memory":{"raw":"2.164MiB / 983.9MiB","percent":"0.22%"},"cpu":"0.00%"}
 
 
 **Additional Notes**
