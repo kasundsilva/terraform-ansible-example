@@ -71,34 +71,35 @@ provissioning
 ```
 
 ## Notes
-A script to show health of the nginx container exists in `/home/ubuntu/.scripts/nginx-healthcheck.sh` folder.
 
+A script to show health of the nginx container exists in `/home/ubuntu/.scripts/nginx-healthcheck.sh` folder.
 ```sh
 root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-healthcheck.sh 
 Nginx healthy!
 ```
-A script to fetch the output of the nginx default HTTP page and print out the word that occurs most on the page (exclude HTML tags) exists in `/home/ubuntu/.scripts/nginx-fetch-output.sh` folder.
 
+A script to fetch the output of the nginx default HTTP page and print out the word that occurs most on the page (exclude HTML tags) exists in `/home/ubuntu/.scripts/nginx-fetch-output.sh` folder.
 ```sh
 root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-fetch-output.sh 
 Word that occurs most on the page:  is
 ```
-Resource usage of the nginx container exists in `/home/ubuntu/.nginx/stats/resource-log.html` and the usage automaticatlly updates every 10 seconds.
 
-```
+Resource usage of the nginx container exists in `/home/ubuntu/.nginx/stats/resource-log.html` and the usage automaticatlly updates every 10 seconds.
+```sh
 root@ip-172-22-253-15:/home/ubuntu/.nginx/stats# cat resource-log.html 
 {"container":"nginx","memory":{"raw":"2.16MiB / 983.9MiB","percent":"0.22%"},"cpu":"0.00%"}
 ```
-Resource usage of the nginx container `/home/ubuntu/.nginx/stats/resource-log.html` also served via nginx in http://<PUBLIC_DNS>/stats/resource-log.
 
+Resource usage of the nginx container `/home/ubuntu/.nginx/stats/resource-log.html` also served via nginx in http://<PUBLIC_DNS>/stats/resource-log.
+```sh
 root@ip-172-22-253-15:/home/ubuntu/.nginx/stats# curl http://<PUBLIC_DNS>/stats/resource-log.html
 {"container":"nginx","memory":{"raw":"2.164MiB / 983.9MiB","percent":"0.22%"},"cpu":"0.00%"}
-
+```
 
 **Additional Notes**
 
 You can add `terraform/terraform.tfvars` which contais runtime variables. If you don't have this file in place terraform will prompt for these values in the runtime.
-```
+```sh
 access_key = "<access_key>"
 secret_key = "<secret_key>"
 region = "us-east-2"
