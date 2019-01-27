@@ -13,7 +13,7 @@ This repository sets up:
 * Nginx docker container running inside the EC2 instance
 
 
-## prerequisites
+## Prerequisites
 - Install the following locally:
 provissioning
     * [Terraform](https://www.terraform.io/) >= 0.10.0
