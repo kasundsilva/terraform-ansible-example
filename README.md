@@ -1,5 +1,5 @@
 
-## Simple Terraform/Ansible provissioning script to create an aws ec2 instance and run an Nginx docker container inside.    
+## Terraform/Ansible provissioning script to create an aws ec2 instance and run an Nginx docker container inside.    
 
 ## Details
 
