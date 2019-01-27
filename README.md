@@ -20,7 +20,7 @@ provissioning
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
     * Ensure you add the key pair from aws to `terraform/keys` folder.
-    * Ensure SSH agent has the AWS private key `ssh-add <path_to_key_file>` 
+    * Ensure SSH agent has the AWS private key added > `ssh-add <path_to_key_file>` 
     
 
 ## Structure
