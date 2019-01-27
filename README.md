@@ -57,17 +57,6 @@ provissioning
     └── variables.tf
 
 ```
- 
-## Notes
-You can add `terraform/terraform.tfvars` which contais runtime variables. If you don't have this file in place terraform will prompt 
-for these values in the runtime.
-```
-access_key = "<access_key>"
-secret_key = "<secret_key>"
-region = "us-east-2"
-aws_key_path = "<path_to_key>"
-aws_key_name = "<key_name>"
-```
 
 ## Usage
 
@@ -80,7 +69,6 @@ aws_key_name = "<key_name>"
 ```sh
 ./destroy.sh
 ```
-
 
 ## Notes
 Scripts to show the health of the nginx container. and fetch the output of the nginx default HTTP page, print out the word that occurs most on the page (exclude HTML tags) exists in `/home/ubuntu/.scripts` folder.
@@ -95,3 +83,17 @@ Nginx healthy!
 root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-fetch-output.sh 
 Word that occurs most on the page:  is
 ```
+
+
+
+
+**Additional Notes**
+
+You can add `terraform/terraform.tfvars` which contais runtime variables. If you don't have this file in place terraform will prompt for these values in the runtime.
+```
+access_key = "<access_key>"
+secret_key = "<secret_key>"
+region = "us-east-2"
+aws_key_path = "<path_to_key>"
+aws_key_name = "<key_name>"
+
