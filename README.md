@@ -19,6 +19,7 @@ This repository sets up:
 
     * [Terraform](https://www.terraform.io/) >= 0.10.0
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
+    * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
     * Ensure you add the key pair from aws to `terraform/keys` folder.
 
 
@@ -69,6 +70,5 @@ aws_key_name = "<key_name>"
 ## Cleanup
 
 ```sh
-cd terraform
-terraform destroy
+./destroy.sh
 ```
