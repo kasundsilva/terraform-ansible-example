@@ -95,7 +95,7 @@
         group: root
         mode: a+x
     
-    - name: copy nginx fetch-output script
+    - name: Copy nginx fetch-output script
       copy:
         src: scripts/nginx-fetch-output.sh
         dest: .scripts/nginx-fetch-output.sh
@@ -103,7 +103,7 @@
         group: root
         mode: a+x
 
-    - name: copy nginx scripts/nginx-stats.sh
+    - name: Copy nginx scripts/nginx-stats.sh
       copy:
         src: scripts/nginx-stats.sh
         dest: /etc/cron.d/

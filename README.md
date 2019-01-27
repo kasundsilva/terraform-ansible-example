@@ -108,6 +108,13 @@ aws_key_name = "<key_name>"
 ```
 
 ## Risks
-```
-TODO
-```
+
+1. Creating the EC2 key pair manually and copying it to the source code location is not a good practice. This might be committed to a public repo by mistake. What can be done is to create the key-pair using terraform itself and using the AWS parameter store to store it and refer to its resource when performing instance related options. 
+
+2. Using AWS credentials in *.tfvars file is not a good practice. This can be committed to a public repo by mistake, therefore, it is necessary to ensure that the .tfvars file is in the git config file as git ignore. This also can be done running terraform in a management node(EC2 instance) in AWS with a role that has permission/policies to created related resources.
+
+3. Having terraform on the local machine or uploading scripts to the repo is not the best practice. The state file can also contain sensitive information like passwords. Therefore it is of good practice to use a feature in terraform that allows to store the state file in an S3 bucket and update it when changes are done.
+
+4. Running containers without a container management platform can be risky, and not reliable. Containers can be killed due to various reasons. The better way of doing this to maintain your containers inside a container management platform such as Kubernetes / Openshift.
+
+
