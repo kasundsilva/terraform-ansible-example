@@ -6,7 +6,7 @@
 This repository sets up:
 
 * A VPC
-* Public and Private subnets
+* Public and private subnets
 * An internet gateway
 * Security groups
 * A publicly accessible EC2 instance running Ubuntu Server 18.04 LTS
