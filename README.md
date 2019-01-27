@@ -80,3 +80,18 @@ aws_key_name = "<key_name>"
 ```sh
 ./destroy.sh
 ```
+
+
+## Notes
+Scripts to show the health of the nginx container. and fetch the output of the nginx default HTTP page, print out the word that occurs most on the page (exclude HTML tags) exists in `/home/ubuntu/.scripts` folder.
+
+**See below usage of the scrips**
+```sh
+root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-healthcheck.sh 
+Nginx healthy!
+```
+
+```sh
+root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-fetch-output.sh 
+Word that occurs most on the page:  is
+```
