@@ -1,5 +1,5 @@
 
-## Terraform/Ansible provissioning script to create an aws ec2 instance and run an Nginx docker container inside.    
+## Terraform/Ansible provisioning script to create an AWS EC2 instance and run an Nginx docker container inside.    
 
 ## Details
 
@@ -16,7 +16,7 @@ This repository sets up:
 
 ## Prerequisits
 - Install the following locally:
-
+provissioning
     * [Terraform](https://www.terraform.io/) >= 0.10.0
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
@@ -25,7 +25,6 @@ This repository sets up:
 
 ## Structure
 ```
-.
 .
 ├── ansible
 │   ├── ansible.cfg
@@ -65,7 +64,7 @@ for these values in the runtime.
 ```
 access_key = "<access_key>"
 secret_key = "<secret_key>"
-aws_reagion = "us-east-2"
+region = "us-east-2"
 aws_key_path = "<path_to_key>"
 aws_key_name = "<key_name>"
 ```
