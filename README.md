@@ -6,12 +6,11 @@
 This repository sets up:
 
 * A VPC
-* public and private subnets
+* Public and Private subnets
 * An internet gateway
 * Security groups
-* A publicly-accessible EC2 instance with Ubuntu 18.04
-* Within the EC2 instance:
-   * Nginx docker container
+* A publicly accessible EC2 instance running Ubuntu Server 18.04 LTS
+* Nginx docker container running inside the EC2 instance
 
 
 ## Prerequisits
@@ -21,7 +20,8 @@ provissioning
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
     * Ensure you add the key pair from aws to `terraform/keys` folder.
-
+    * Ensure SSH agent has the AWS private key `ssh-add <path_to_key_file>` 
+    
 
 ## Structure
 ```
@@ -105,4 +105,4 @@ secret_key = "<secret_key>"
 region = "us-east-2"
 aws_key_path = "<path_to_key>"
 aws_key_name = "<key_name>"
-
+```
