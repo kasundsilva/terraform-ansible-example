@@ -71,7 +71,7 @@ provissioning
 ```
 
 ## Notes
-**A script to show the health of the nginx container exists in `/home/ubuntu/.scripts/nginx-healthcheck.sh` folder.**
+A script to show health of the nginx container exists in `/home/ubuntu/.scripts/nginx-healthcheck.sh` folder.
 
 ```sh
 root@ip-172-22-253-15:/home/ubuntu/.scripts# ./nginx-healthcheck.sh 
