@@ -1,0 +1,1 @@
+* * * * * for i in 0 1 2 3 4 5; do docker stats --no-stream --format "{\"container\":\"{{ .Container }}\",\"memory\":{\"raw\":\"{{ .MemUsage }}\",\"percent\":\"{{ .MemPerc }}\"},\"cpu\":\"{{ .CPUPerc }}\"}" nginx >> /home/ubuntu/.nginx/stats/resource-log.html; sleep 10; done

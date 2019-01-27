@@ -5,6 +5,29 @@
     ansible_python_interpreter: "/usr/bin/python3"
 
   tasks:
+    
+    - name: Allow all access to tcp port 22
+      ufw:
+        rule: allow
+        port: 22
+        proto: tcp
+
+    - name: Allow all access to tcp port 80
+      ufw:
+        rule: allow
+        port: 80
+        proto: tcp
+
+    - name: Allow all access to tcp port 443
+      ufw:
+        rule: allow
+        port: 443
+        proto: tcp
+
+    - name: Enable UFW
+      ufw:
+        state: enabled
+
     - name: Add Docker GPG key
       apt_key: url=https://download.docker.com/linux/ubuntu/gpg
     
@@ -29,6 +52,25 @@
         name: docker
         state: present
    
+    - name: Create .nginx volume
+      file:
+        path: .nginx/stats
+        state: directory 
+
+    - name: Copy static files to nginx volume
+      copy:
+        src: static-files/index.html
+        dest: .nginx/index.html
+        owner: root
+        group: root
+
+    - name: Copy static files to nginx volume
+      copy:
+        src: static-files/50x.html
+        dest: .nginx/50x.html
+        owner: root
+        group: root
+
     - name: Create and start nginx container 
       docker_container:
         name: nginx
@@ -38,6 +80,7 @@
           - 80:80
         expose:
           - 80
+        volumes: /home/ubuntu/.nginx:/usr/share/nginx/html:ro
 
     - name: Create .scripts directory
       file:
@@ -60,8 +103,13 @@
         group: root
         mode: a+x
 
-    - name: Installing ctop for container monitring
-      get_url:
-        url: https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64
-        dest: /usr/local/bin/ctop
+    - name: copy nginx scripts/nginx-stats.sh
+      copy:
+        src: scripts/nginx-stats.sh
+        dest: /etc/cron.d/
+        owner: root
+        group: root
         mode: a+x
+
+    - name: Enable cron 
+      command: crontab /etc/cron.d/nginx-stats.sh

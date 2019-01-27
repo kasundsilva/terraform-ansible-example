@@ -13,5 +13,3 @@ cd ../ansible
 
 # pull the instance information from Terraform, and run the Ansible playbook against it to configure
 TF_STATE=../terraform/terraform.tfstate ansible-playbook "--inventory-file=$(which terraform-inventory)" playbook.yml -u ubuntu --private-key ../terraform/keys/qrious.pem
-
-echo "Deployment Success!"
