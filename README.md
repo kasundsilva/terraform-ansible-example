@@ -16,7 +16,7 @@ This repository sets up:
 ## Prerequisites
 - Install the following locally:
 provissioning
-    * [Terraform](https://www.terraform.io/) >= 0.10.0
+    * [Terraform](https://www.terraform.io/)
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
     * Ensure you add the key pair from aws to `terraform/keys` folder.
